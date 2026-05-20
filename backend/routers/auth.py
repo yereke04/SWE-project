@@ -31,7 +31,7 @@ def register_new_user(data: schemas.AccountCreate, db: Session = Depends(databas
         profile = models.MerchantProfile(
             user_id=new_user.id,
             business_name=data.full_name,
-            is_public=False
+            is_public=True
         )
         db.add(profile)
         db.commit()

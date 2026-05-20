@@ -55,7 +55,7 @@ export default function SupplierCatalog() {
     setSubmitting(true);
     try {
       await api.post(Endpoints.transactions, {
-        merchant_id: id, // Orders are linked to the Merchant Profile ID
+        merchant_id: parseInt(String(id), 10),
         items
       });
       Alert.alert("Success", "Order placed successfully!");

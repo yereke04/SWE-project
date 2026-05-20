@@ -17,7 +17,7 @@ export default function DashboardHome() {
       const activeCount = links.filter(l => l.status === 'active').length;
 
       // 2. Get Orders
-      const orders = await Backend.get("/transactions");
+      const orders = await Backend.get("/transactions/");
       const totalRev = orders.reduce((sum, o) => sum + o.total_value, 0);
 
       setStats({

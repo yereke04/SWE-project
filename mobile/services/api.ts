@@ -1,8 +1,12 @@
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
+import { Platform } from 'react-native';
 
-// ⚠️ REPLACE with your current Ngrok URL
-const BASE_URL = 'https://unwarped-bullheadedly-eladia.ngrok-free.dev/';
+// Override in mobile/.env: EXPO_PUBLIC_API_URL=http://YOUR_PC_IP:8000
+const DEFAULT_API_URL =
+  Platform.OS === 'android' ? 'http://10.0.2.2:8000' : 'http://127.0.0.1:8000';
+
+const BASE_URL = (process.env.EXPO_PUBLIC_API_URL ?? DEFAULT_API_URL).replace(/\/$/, '');
 
 const apiClient = axios.create({
   baseURL: BASE_URL,
@@ -30,7 +34,7 @@ export const Endpoints = {
   merchants: '/merchants',                  // Was /suppliers
   partnerships: '/merchants/partnerships',  // Was /links
   inventory: '/inventory/merchant',         // Was /products/supplier
-  transactions: '/transactions',            // Was /orders
+  transactions: '/transactions/',
   
   myInventory: '/inventory/me',
   chat: '/communication/chat',

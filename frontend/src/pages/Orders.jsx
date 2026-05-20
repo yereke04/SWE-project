@@ -10,7 +10,7 @@ export default function Orders() {
 
   const loadOrders = async () => {
     try {
-      const data = await Backend.get("/transactions");
+      const data = await Backend.get("/transactions/");
       setOrders(data);
     } catch (e) {
       console.error(e);

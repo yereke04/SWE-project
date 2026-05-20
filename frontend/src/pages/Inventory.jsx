@@ -25,7 +25,7 @@ export default function Inventory() {
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
-      await Backend.post("/inventory", {
+      await Backend.post("/inventory/", {
         name: newItem.name,
         price: parseFloat(newItem.price),
         stock: parseInt(newItem.stock),
