@@ -1,0 +1,15 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE (optional local settings)
+.idea/
+
+# Binaries and local tools
+*.exe
+ngrok.exe
